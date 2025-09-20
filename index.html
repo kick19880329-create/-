@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>한성이 분유일지</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+    <header class="app-header">
+        <div class="header-placeholder-left"></div>
+        <h1><i class="fa-solid fa-baby"></i> 한성이 분유일지</h1>
+        <div id="current-time"></div>
+    </header>
+
+    <div class="main-container">
+        <main id="app">
+            <section class="next-meal-card">
+                <h2><i class="fa-solid fa-hourglass-half"></i> 남은 시간</h2>
+                <div id="countdown-timer">한성아 밥묵자</div>
+            </section>
+
+            <section class="add-record-form">
+                <h2>새 기록 추가</h2>
+                <div class="form-group">
+                    <label>종류</label>
+                    <div class="food-type-buttons">
+                        <button data-type="분유" class="food-type-btn"><i class="fa-solid fa-bottle-water"></i> 분유</button>
+                        <button data-type="이유식" class="food-type-btn"><i class="fa-solid fa-bowl-food"></i> 이유식</button>
+                        <button data-type="간식" class="food-type-btn"><i class="fa-solid fa-cookie-bite"></i> 간식</button>
+                        <button id="add-custom-type-btn" class="food-type-btn outline"><i class="fa-solid fa-plus"></i> 기타</button>
+                    </div>
+                    <input type="text" id="food-type-input" placeholder="직접 입력 (예: 물, 보리차)" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="amount-input">양 (ml 또는 g)</label>
+                    <div class="amount-stepper">
+                        <button type="button" id="decrease-amount-btn" class="stepper-btn" aria-label="양 20 줄이기"><i class="fa-solid fa-minus"></i></button>
+                        <input type="number" id="amount-input" value="200" step="20" min="0" required>
+                        <button type="button" id="increase-amount-btn" class="stepper-btn" aria-label="양 20 늘리기"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </div>
+                <button id="save-btn" class="primary-action">
+                    <i class="fa-solid fa-check"></i> 저장하기
+                </button>
+            </section>
+        </main>
+
+        <aside class="right-column">
+            <section class="next-meal-display-card">
+                <h2><i class="fa-solid fa-clock"></i> 다음 식사</h2>
+                <div id="next-meal-display"></div>
+                <small id="last-meal-info"></small>
+            </section>
+            <section id="log-section">
+                <h2><i class="fa-solid fa-list-ul"></i> 기록</h2>
+                <ul id="log-list">
+                    <!-- Log items will be inserted here -->
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
